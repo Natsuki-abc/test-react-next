@@ -4,8 +4,20 @@ import Counter from "./Counter";
 import Link from "next/link";
 
 export default function Home() {
+  const postIds = [1, 2, 3, 4, 5];
   return (
     <div className={styles.page}>
+      <div>
+        <h1>記事一覧</h1>
+        <ul>
+          {postIds.map((id) => (
+            <li key={id}>
+              <Link href={`/post/${id}`}>Post {id}</Link>
+            </li>
+          ))}
+        </ul>
+      </div>
+
       <Link href="/about">Aboutページへ移動</Link>
       <Counter />
       <main className={styles.main}>
